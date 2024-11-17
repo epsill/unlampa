@@ -6,12 +6,12 @@
 var currentUrl = window.location.href;
 
 // Проверяем, содержит ли URL слово "bylampa"
-if (currentUrl.indexOf("bylampa") !== -1) {
+if (currentUrl.indexOf("unlampa") !== -1) {
     // Если "bylampa" есть в URL, выполняем нужные действия
-    console.log("Слово 'bylampa' найдено в URL!");
+    console.log("Слово 'unlampa' найдено в URL!");
     
 } else {
-    console.log("Слово 'bylampa' не найдено в URL.");
+    console.log("Слово 'unlampa' не найдено в URL.");
 }*/
 
    window.lampa_settings.torrents_use = true;
@@ -19,10 +19,10 @@ if (currentUrl.indexOf("bylampa") !== -1) {
    window.lampa_settings.read_only = false;
 
    Lampa.Utils.putScriptAsync([
-	   // 'https://bylampa.github.io/auth.js?v=' + Math.random(),
-	    'https://bylampa.github.io/notice.js?v=' + Math.random(),
-	    'https://bylampa.github.io/addon.js?v=' + Math.random(),
-	    'https://bylampa.github.io/themes.js?v=' + Math.random()
+	   // 'https://unlampa.github.io/auth.js?v=' + Math.random(),
+	    'https://unlampa.github.io/notice.js?v=' + Math.random(),
+	    'https://unlampa.github.io/addon.js?v=' + Math.random(),
+	    'https://unlampa.github.io/themes.js?v=' + Math.random()
    ], function () {});
 
    var timer = setInterval(function(){
