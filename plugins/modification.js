@@ -1,19 +1,4 @@
- //  console.log(window.location.origin);
-     console.log(window.location.host);
-     console.log(window.location.href);
-/*
-   // Получаем текущий URL
-var currentUrl = window.location.href;
-
-// Проверяем, содержит ли URL слово "bylampa"
-if (currentUrl.indexOf("bylampa") !== -1) {
-    // Если "bylampa" есть в URL, выполняем нужные действия
-    console.log("Слово 'bylampa' найдено в URL!");
-    
-} else {
-    console.log("Слово 'bylampa' не найдено в URL.");
-}*/
-
+   
    window.lampa_settings.torrents_use = true;
    window.lampa_settings.demo = false;
    window.lampa_settings.read_only = false;
@@ -74,3 +59,11 @@ $(document).ready(function() {
         }
     });
 });
+
+var plugins = Lampa.Storage.get('plugins','[]')
+
+    plugins.forEach(function(plug) {
+        plug.url = (plug.url + '').replace('http://cub.red/plugin/tmdb-proxy', 'https://bylampa.github.io/tmdb-proxy.js');
+    })
+
+    Lampa.Storage.set('plugins',plugins)
