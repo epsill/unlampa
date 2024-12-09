@@ -4,10 +4,8 @@
    window.lampa_settings.read_only = false;
 
    Lampa.Utils.putScriptAsync([
-	   // 'https://bylampa.github.io/auth.js?v=' + Math.random(),
 	    'https://bylampa.github.io/notice.js?v=' + Math.random(),
-	    'https://bylampa.github.io/addon.js?v=' + Math.random(),
-	    'https://bylampa.github.io/themes.js?v=' + Math.random()
+	    'https://bylampa.github.io/addon.js?v=' + Math.random()
    ], function () {});
 
    var timer = setInterval(function(){
@@ -67,3 +65,19 @@ var plugins = Lampa.Storage.get('plugins','[]')
     })
 
     Lampa.Storage.set('plugins',plugins)
+
+var backImport = localStorage.getItem('plugins') || [];
+  localStorage.setItem('pluginsBack', backImport);
+
+// Получаем все ключи из localStorage
+for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    
+    if (key && key.indexOf('movie_') === 0) {
+        // Удаляем элемент из localStorage
+        localStorage.removeItem(key);
+        i--;
+    }
+}
+
+$('link[rel="stylesheet"][href^="https://bylampa.github.io/themes/"]').remove();
